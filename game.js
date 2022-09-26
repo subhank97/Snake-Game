@@ -1,4 +1,4 @@
-import { Snake_Speed, renderSnake } from './snake.js'
+import { Snake_Speed, renderSnake, updateSnake } from './snake.js'
 
 let lastRenderTime = 0
 const board = document.getElementById('board')
@@ -8,13 +8,18 @@ function main(currentTime){
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
     if (secondsSinceLastRender < 1 / Snake_Speed) 
     return 
-    console.log('Rendering')
+    //console.log('Rendering')
     lastRenderTime = currentTime
-
-    render()
+    updateGame()
+    renderGame()
 }
 window.requestAnimationFrame(main)
 
-function render(){
+function updateGame(){
+    updateSnake()
+}
+
+function renderGame(){
+    board.innerHTML= ''
     renderSnake(board)
 }
