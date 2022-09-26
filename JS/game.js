@@ -1,4 +1,4 @@
-import { Snake_Speed, renderSnake, updateSnake } from './snake.js'
+import { Snake_Speed, renderSnake, updateSnake } from '../JS/snake.js'
 
 let lastRenderTime = 0
 const board = document.getElementById('board')
