@@ -1,4 +1,5 @@
 import { Snake_Speed, renderSnake, updateSnake } from '../JS/snake.js'
+import { renderFood, updateFood } from './food.js'
 
 let lastRenderTime = 0
 const board = document.getElementById('board')
@@ -17,9 +18,11 @@ window.requestAnimationFrame(main)
 
 function updateGame(){
     updateSnake()
+    updateFood()
 }
 
 function renderGame(){
     board.innerHTML= ''
     renderSnake(board)
+    renderFood(board)
 }
