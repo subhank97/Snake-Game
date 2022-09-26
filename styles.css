@@ -16,3 +16,7 @@ body {
     grid-template-columns: repeat(21, 1fr);
 }
 
+.snake {
+    background-color: hsl(200, 100%, 50%);
+    border: .25vmin solid black;
+}
