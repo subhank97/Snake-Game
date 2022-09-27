@@ -1,6 +1,6 @@
 import { inputDirection } from "./input.js"
 
-export const snakeSpeed = 4
+export const SNAKE_SPEED = 4
 const snake = [{ x: 11, y: 11 }]
 let newSegments = 0
 
