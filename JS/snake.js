@@ -1,10 +1,15 @@
 import { inputDirection } from "./input.js"
 
-export const Snake_Speed = 1
+export const snakeSpeed = 4
 const snake = [{ x: 11, y: 11 }]
+let newSegments = 0
 
 export function updateSnake(){
+
+    addSegments()
+
     const input = inputDirection()
+
     for (let i = snake.length - 2; i >= 0; i--){
         snake[i +1]= {...snake[i]}
     }
@@ -20,4 +25,25 @@ export function renderSnake(board){
         snakeElement.classList.add('snake')
         board.appendChild(snakeElement)
     })
+}
+
+export function growSnake(amount){
+    newSegments += amount 
+}
+
+export function onSnake(position){
+    return snake.some(segment => {
+        return equalPositions(segment, position)
+    })
+}
+
+function equalPositions(pos1, pos2){
+    return pos1.x === pos2.x && pos1.y === pos2.y
+}
+
+function addSegments(){
+    for (let i = 0; i < newSegments; i++){
+        snake.push({...snake[snake.length - 1]})
+    }
+    newSegments = 0
 }

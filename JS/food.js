@@ -1,6 +1,13 @@
+import { growSnake, onSnake } from "./snake.js"
+
 let food = { x:5, y:5 }
+const growRate = 1
 
 export function updateFood(){
+    if (onSnake(food)) {
+        growSnake(growRate)
+        food = { x:20, y:10 }
+    }
 }
 
 export function renderFood(board){
