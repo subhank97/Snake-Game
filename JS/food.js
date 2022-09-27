@@ -2,7 +2,7 @@ import { growSnake, onSnake } from "./snake.js"
 import { randomGridPosition } from "./grid.js"
 
 let food = randomFoodPosition()
-const GROW_RATE = 5
+const GROW_RATE = 3
 
 export function updateFood(){
     if (onSnake(food)) {

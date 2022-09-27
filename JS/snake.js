@@ -1,6 +1,6 @@
 import { inputDirection } from "./input.js"
 
-export const SNAKE_SPEED = 4
+export const SNAKE_SPEED = 6
 const snake = [{ x: 11, y: 11 }]
 let newSegments = 0
 
@@ -31,8 +31,10 @@ export function growSnake(amount){
     newSegments += amount 
 }
 
-export function onSnake(position){
-    return snake.some(segment => {
+export function onSnake(position, {ignoreHead = false} = {}){
+    return snake.some((segment, index) => {
+        if(ignoreHead && index === 0) 
+        return false
         return equalPositions(segment, position)
     })
 }
@@ -46,4 +48,12 @@ function addSegments(){
         snake.push({...snake[snake.length - 1]})
     }
     newSegments = 0
+}
+
+export function snakeHead(){
+    return snake[0]
+}
+
+export function snakeIntersection(){
+    return onSnake(snake[0], {ignoreHead: true})
 }
